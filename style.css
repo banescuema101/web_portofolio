@@ -1,0 +1,395 @@
+/* General */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+p {
+  color: rgb(85, 85, 85);
+}
+/* Transision */
+a, .btn {
+  transition: all 300ms ease;
+}
+/* Navigation */
+nav, .nav-links {
+  display: flex;
+}
+nav {
+  justify-content: space-around;
+  align-items: center;
+  height: 17vh;
+}
+.nav-links {
+  gap: 7vh;
+  list-style:none;
+  font-size:1.5rem;
+}
+.nav-links li a {
+  text-decoration: none;
+  color:black;
+}
+.nav-links li a:hover {
+  text-decoration: underline;
+  color:grey;
+  text-underline-offset: 1.5rem;
+  /* for the underline to be more under the text, not attached */
+  text-decoration-color:rgb(181,181,181);
+}
+.logo {
+  font-size: 2rem;
+}
+.logo:hover{
+  cursor: default;
+}
+/* Hamburger-Menu for mobile version of the website. */
+
+/* HAMBURGER MENU */
+
+#hamburger-nav{
+  display:none;
+}
+.hamburger-menu{
+  display: inline-block;
+  position: relative;  /* pozitionam fata de layout, vrem sa fie acolo.*/
+}
+.hamburger-icon{
+  display: flex;   /* iconita aceasta vreau contine
+                   3 spanuri, ce vor reprezenta practic 3 liniute una sub alta */
+  flex-direction: column;
+  height: 24px;
+  width: 30px;
+  justify-content: space-between;  /* sa fie putin departate cele 3 linii una de alta.*/
+  cursor:pointer; /* schimba tipul de cursor de la sageata la manuta.*/
+}
+.hamburger-icon span{
+  background-color: black;
+  width: 100%;
+  height:2px;
+  transition: all 0.3s ease-in-out;
+}
+.menu-links {
+  position: absolute; /* sa fie o pozitie fata de parinte ne raportam practic.*/
+  top: 100%;
+  right:0;
+  background-color: white;
+  width: fit-content;
+  max-height:0;  /*in mod normal cand sunt cele 3 liniute ca si pictograma
+                  nu vreau sa vad nimic si voi face inaltimea maxima 0, iar overflow: hidden*/
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.menu-links a{
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  display:block;
+  transition: all 0.3s ease-in-out;
+}
+.menu-links li{
+  list-style:none;
+}
+.menu-links.open {
+  max-height: 300px;
+}
+.hamburger-icon.open span:first-child{
+  transform: rotate(45deg) translate(10px, 5px);
+}
+.hamburger-icon.open span:nth-child(2){
+  opacity:0; /*vreau sa dispara cea din mijloc cande open meniul ca sa formam un x frumos.*/
+}
+.hamburger-icon.open span:last-child{
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+/*cand nu e mobile-meniul deschis, raman cele 3 liniute.*/
+.hamburger-icon span:first-child{
+  transform: none;
+}
+.hamburger-icon span:nth-child(2){
+  opacity:1;
+}
+.hamburger-icon span:last-child{
+  transform: none;
+}
+/* Sections */
+
+section{
+  padding-top:auto;
+  height:96vh;
+  margin:0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+.section__container{
+  display: flex;
+}
+/* -Profile- */
+.me_logo{
+  border-radius:10px;
+}
+#profile{
+  display:flex;
+  justify-content: center;
+  gap: 5rem;
+  height: 70vh;
+}
+.section__pic-container{
+  display:flex;
+  height: 400px;
+  width:400px;
+  margin: auto 0;
+  /*auto at the top, 0 on the size*/
+}
+.section__text{
+  text-align:center;
+  align-self:center;
+  /* proprietate CSS utilizată pentru a alinia un element specific pe axa
+   transversală într-un container flexibil (flexbox) sau într-un grid.
+  Axa transversală este perpendiculară pe axa principală
+  definită de flex-direction.*/
+}
+.section__text__p{
+  font-weight: 600;
+}
+.section__text__p1{
+  text-align:center;
+}
+.section__text__p2{
+  font-size: 1.75rem;
+  margin-bottom:1rem;
+}
+.title{
+  font-size:3rem;
+  text-align:center;
+}
+#socials-container{
+  display:flex;
+  justify-content: center;
+  margin-top:1rem;
+  gap: 1rem;
+}
+
+/* Icons */
+.icon{
+  cursor: pointer;
+  height:2rem;
+}
+/* Buttons */
+.btn-container{
+  display:flex;
+  justify-content:center;
+  gap:1.5rem;
+}
+.btn{
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+}
+.btn-color-1, .btn-color-2{
+  border: rgb(53,53,53) 0.1rem solid;
+}
+.btn-color-1:hover, .btn-color-2:hover{
+  cursor: pointer;
+}
+.btn-color-1, .btn-color-2:hover{
+  background-color:rgb(53,53,53);
+  color: white;
+}
+.btn-color-1:hover{
+  background-color:rgb(0,0,0);
+}
+.btn-color-2{
+  background:none;
+}
+.btn-color-2:hover{
+  border: rgb(255,255,255) 0.1rem solid;
+}
+
+/*PROFILE SECTION*/
+
+/* ABOUT SECTION */
+
+#about {
+  position: relative;
+  width:fit-content;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-containers,
+.about-details-container {
+  display: flex;
+}
+
+.arrow {
+  position: absolute;
+  right: -5rem;
+  bottom: 4.5rem;
+}
+
+.details-container {
+  padding: 1.5rem;
+  flex: 1; /*Specifies the components of a flexible length*/
+  background: white;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  text-align: center;
+}
+
+.section-container {
+  gap: 4rem;
+  height: 80%;
+}
+
+.section__pic-container {
+  height: 300px;
+  width: 300px;
+  margin: auto 0;
+}
+.about-details-container{
+  width:fit-content;
+}
+
+/*Experience section*/
+#experience{
+  position: relative;
+}
+.experience-details-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.article-container{
+  display: flex;
+  text-align: initial;
+  flex-wrap:wrap; /*when the elements of article-container eat 
+  bigger space than the container, they will wrap under each under.*/
+  flex-direction: row;
+  gap: 4rem;
+  justify-content: space-around;
+  text-align: center;
+}
+.details-containers{
+  border: rgb(163, 163, 163) 0.1rem solid;
+  border-radius: 20px;
+  padding: 10px 10px 10px 10px;
+  width:40rem;
+  justify-content: center;
+  text-align: center;
+}
+article{
+  justify-content: space-around;
+  gap: 0.5rem;
+  display: flex; /*!!*/
+  width: 10rem;
+}
+.section_text_p1{
+  text-align: center;
+  font-size: 20px;
+  color:rgb(117, 115, 115);
+}
+article .icon{
+  cursor: default;
+}
+/*PROJECTS SECTION*/
+#projects{
+  position: relative;
+}
+.color-container{
+  border: rgb(0, 123, 189) 0.1rem solid;
+  background: rgb(250, 250, 250);
+  width: 30%;
+}
+.project-img{
+  border-radius: 2rem;
+  width: 90%; /*am optat pentru procente, 90% din tot divul parinte sa ocupe.*/
+  height: 90%;
+}
+.project-title{
+  margin: 1rem;
+  color:black;
+  margin-top: 2rem;
+}
+.project-btn{
+  color:black;
+  border: rgb(69, 72, 78) 0.1rem solid;
+}
+.btn-container{
+  flex-wrap: wrap;
+  display: flex;
+}
+
+#contact{
+  position: relative;
+  height: 70vh;
+  flex-direction: column;
+  display: flex;
+  height: 70vh;
+  margin-top: 2rem;
+  justify-content: center;
+}
+.contact-details{
+  border: rgb(95, 95, 95) 0.1rem solid;
+  border-radius: 2rem;
+  padding: 2rem;
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  margin: 2rem auto;
+}
+.gmail-container{
+  display: flex;
+}
+.phone-container{
+  display: flex;
+}
+.contact-details{
+  display: flex;
+  gap: 4rem;
+}
+.contact-icon{
+  cursor:default;
+}
+.contact-details p{
+  font-size:larger;
+  align-self: center;
+}
+.email-icon{
+  height: 2.5rem;
+}
+/*FOOTER */
+footer{
+  height: 26vh;
+  margin: 0 auto; 
+}
+footer p{
+  text-align: center;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
